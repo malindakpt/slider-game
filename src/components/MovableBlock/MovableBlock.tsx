@@ -9,7 +9,6 @@ export const MovableBlock: React.FC<MovableBlockProps> = ({ blockNo }) => {
   let left = blockNo % 3 === 1 ? 0 : blockNo % 3 === 2 ? 100 : 200;
   left = top === 100 ? 200 - left : left;
 
-  console.log(top);
   const location = {
     transition: "all 700ms",
     color: "white",
