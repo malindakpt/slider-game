@@ -3,4 +3,9 @@
   background-color: yellowgreen;
   display: grid;
   grid-template-columns: 2fr 1fr;
+
+  .score {
+    padding: 10px;
+    font-size: 23px;
+  }
 }

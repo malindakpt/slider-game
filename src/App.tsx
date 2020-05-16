@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "./components/Container/Container";
+import { GameStation } from "./components/gameStation/GameStation";
 
 function App() {
   return (
     <div className="App">
-      <Container />
+      <GameStation />
     </div>
   );
 }

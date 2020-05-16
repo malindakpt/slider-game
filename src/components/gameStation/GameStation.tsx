@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Grid } from "../Grid/Grid";
-import classes from "./Container.module.scss";
-import { Slider } from "../Slider/Slider";
-import { GameController } from "../GameController/GameController";
+import { Grid } from "../grid/Grid";
+import classes from "./GameStation.module.scss";
+import { Slider } from "../slider/Slider";
+import { GameController } from "../gameController/GameController";
 
-export class Container extends Component {
+export class GameStation extends Component {
   private timer: any;
   private readonly SLIDE_GAP = 5;
   private readonly SLIDER_END_POSITION = 250;
@@ -17,6 +17,8 @@ export class Container extends Component {
     sliderPosition: this.SLIDE_START_POSITION,
     isForward: true,
     playerPosition: 1,
+    score: 0,
+    startTime: new Date().getTime(),
   };
 
   componentDidMount() {
@@ -48,8 +50,17 @@ export class Container extends Component {
       this.JUMP_OK_START <= this.state.sliderPosition &&
       this.state.sliderPosition <= this.JUMP_OK_END
     ) {
-      newState.playerPosition++;
-      console.log("OK");
+      if (newState.playerPosition === 3) {
+        const endTime = new Date().getTime();
+        const duration = endTime - newState.startTime;
+
+        // Reset the game staus
+        newState.score += Math.round(1000000 / duration);
+        newState.playerPosition = 1;
+        newState.startTime = endTime;
+      } else {
+        newState.playerPosition++;
+      }
     } else {
       newState.playerPosition = 1;
     }
@@ -59,7 +70,10 @@ export class Container extends Component {
   render() {
     return (
       <div className={classes.container}>
-        <GameController onTryToGo={this.handleTryToGo} />
+        <GameController
+          onTryToGo={this.handleTryToGo}
+          score={this.state.score}
+        />
         <Grid position={this.state.playerPosition} />
         <Slider left={this.state.sliderPosition} />
       </div>
