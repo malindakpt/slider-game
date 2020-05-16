@@ -16,5 +16,9 @@ export const MovableBlock: React.FC<MovableBlockProps> = ({ blockNo }) => {
     left: `${left}px`,
     top: `${top}px`,
   };
-  return <div className={classes.container} style={location}></div>;
+  return (
+    <div className={classes.container} style={location}>
+      <div className={classes.box}></div>
+    </div>
+  );
 };
