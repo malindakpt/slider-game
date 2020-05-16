@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Grid } from "../grid/Grid";
+import { Grid } from "../../presentationComponents/grid/Grid";
 import classes from "./GameStation.module.scss";
-import { Slider } from "../slider/Slider";
-import { GameController } from "../gameController/GameController";
+import { Slider } from "../../presentationComponents/slider/Slider";
+import { GameController } from "../../presentationComponents/gameController/GameController";
 
 export class GameStation extends Component {
   private timer: any;

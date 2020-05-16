@@ -1,5 +1,5 @@
 import React from "react";
-import { GameStation } from "./components/gameStation/GameStation";
+import { GameStation } from "./components/containerComponents/gameStation/GameStation";
 
 function App() {
   return (
