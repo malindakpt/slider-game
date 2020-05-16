@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Grid.module.scss";
+import { MovableBlock } from "../MovableBlock/MovableBlock";
 
 export const Grid: React.FC = () => {
-  return <div className={classes.container}></div>;
+  const [block, setBlock] = useState(1);
+  return (
+    <div className={classes.container} onClick={() => setBlock(block + 1)}>
+      <MovableBlock blockNo={block} />
+    </div>
+  );
 };
