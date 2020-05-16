@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { GameStation } from "./components/containerComponents/gameStation/GameStation";
 
+export const AppContext = React.createContext({
+  appStarted: false,
+  setAppStarted: (status: boolean) => {},
+});
+
 function App() {
+  const [appStarted, setAppStarted] = useState(false);
   return (
-    <div className="App">
+    <AppContext.Provider value={{ appStarted, setAppStarted }}>
       <GameStation />
-    </div>
+    </AppContext.Provider>
   );
 }
 

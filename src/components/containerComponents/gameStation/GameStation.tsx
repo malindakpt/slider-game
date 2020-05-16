@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Grid } from "../../presentationComponents/grid/Grid";
 import classes from "./GameStation.module.scss";
 import { Slider } from "../../presentationComponents/slider/Slider";
-import { GameController } from "../../presentationComponents/gameController/GameController";
+import { GameController } from "../gameController/GameController";
 
 export class GameStation extends Component {
   private timer: any;
@@ -10,8 +10,8 @@ export class GameStation extends Component {
   private readonly SLIDER_END_POSITION = 250;
   private readonly SLIDE_START_POSITION = 25;
   private readonly REFRESH_INTERVAL = 100;
-  private readonly JUMP_OK_START = 125;
-  private readonly JUMP_OK_END = 150;
+  private readonly JUMP_OK_START = 100;
+  private readonly JUMP_OK_END = 175;
 
   state = {
     sliderPosition: this.SLIDE_START_POSITION,
@@ -50,16 +50,20 @@ export class GameStation extends Component {
       this.JUMP_OK_START <= this.state.sliderPosition &&
       this.state.sliderPosition <= this.JUMP_OK_END
     ) {
-      if (newState.playerPosition === 3) {
+      newState.playerPosition++;
+      this.setState(newState);
+
+      if (newState.playerPosition === 9) {
         const endTime = new Date().getTime();
         const duration = endTime - newState.startTime;
-
-        // Reset the game staus
         newState.score += Math.round(1000000 / duration);
-        newState.playerPosition = 1;
         newState.startTime = endTime;
-      } else {
-        newState.playerPosition++;
+        // Reset the game staus
+        setTimeout(() => {
+          const newState = { ...this.state };
+          newState.playerPosition = 1;
+          this.setState(newState);
+        }, 1000);
       }
     } else {
       newState.playerPosition = 1;

@@ -1,0 +1,33 @@
+.container {
+  height: 50px;
+  background-color: yellowgreen;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  .score {
+    padding: 10px;
+    font-size: 23px;
+  }
+
+  .goBtn {
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background: #0c14ff;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: #5a5ffd;
+    }
+  }
+
+  .headerMsg {
+    font-size: 23px;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    font-weight: 800;
+  }
+}
