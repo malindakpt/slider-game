@@ -1,4 +1,4 @@
-import React, { Component, useCallback } from "react";
+import React, { Component } from "react";
 import classes from "./GameStation.module.scss";
 import { Slider } from "../../presentationComponents/slider/Slider";
 import { GameController } from "../gameController/GameController";
@@ -44,7 +44,7 @@ export class GameStation extends Component {
     clearInterval(this.timer);
   }
 
-  handleTryToGo = useCallback(() => {
+  handleTryToGo = () => {
     const newState = { ...this.state };
     if (
       this.JUMP_OK_START <= this.state.sliderPosition &&
@@ -70,7 +70,7 @@ export class GameStation extends Component {
       newState.playerPosition = 1;
     }
     this.setState(newState);
-  }, []);
+  };
 
   render() {
     return (
