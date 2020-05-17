@@ -11,6 +11,7 @@ function App() {
   const [appStarted, setAppStarted] = useState(false);
   return (
     <AppContext.Provider value={{ appStarted, setAppStarted }}>
+      {/* Wrapped by ErrorBoundary to handle errors */}
       <ErrorBoundary>
         <GameStation />
       </ErrorBoundary>

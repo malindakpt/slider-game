@@ -58,7 +58,8 @@ export class GameStation extends Component {
         const duration = endTime - newState.startTime;
         newState.score += Math.round(1000000 / duration);
         newState.startTime = endTime;
-        // Reset the game staus
+
+        // Reset the game staus needs to be happen with some delay
         setTimeout(() => {
           const newState = { ...this.state };
           newState.playerPosition = 1;
