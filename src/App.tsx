@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GameStation } from "./components/containerComponents/gameStation/GameStation";
+import { ErrorBoundary } from "./components/containerComponents/errorBoundary/ErrorBoundary";
 
 export const AppContext = React.createContext({
   appStarted: false,
@@ -10,7 +11,9 @@ function App() {
   const [appStarted, setAppStarted] = useState(false);
   return (
     <AppContext.Provider value={{ appStarted, setAppStarted }}>
-      <GameStation />
+      <ErrorBoundary>
+        <GameStation />
+      </ErrorBoundary>
     </AppContext.Provider>
   );
 }
