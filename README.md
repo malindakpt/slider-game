@@ -1,4 +1,4 @@
-![ArchitecturalDiagram](https://user-images.githubusercontent.com/1351502/82133905-da70a180-980e-11ea-82e9-fc4e90e53bc4.PNG)
+![ArchitecturalDiagram](https://user-images.githubusercontent.com/1351502/82134038-8ebef780-9810-11ea-8e4c-e3734bafd82e.PNG)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
