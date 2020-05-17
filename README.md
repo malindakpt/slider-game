@@ -14,3 +14,4 @@ All the components are wrapped by ErrorBoundary component to handle unexpected e
 
 ### Notes
 `Unit tests` and `storybook stories` are not added due to time limitations.<br />
+`Code comments` are added only for critial scenarios.
