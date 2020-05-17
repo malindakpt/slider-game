@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Grid } from "../../presentationComponents/grid/Grid";
 import classes from "./GameStation.module.scss";
 import { Slider } from "../../presentationComponents/slider/Slider";
 import { GameController } from "../gameController/GameController";
+import { Grid } from "../grid/Grid";
 
 export class GameStation extends Component {
   private timer: any;
@@ -79,7 +79,7 @@ export class GameStation extends Component {
           score={this.state.score}
         />
         <Grid position={this.state.playerPosition} />
-        <Slider left={this.state.sliderPosition} />
+        <Slider location={this.state.sliderPosition} />
       </div>
     );
   }
